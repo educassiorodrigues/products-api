@@ -1,4 +1,5 @@
 ﻿using Cassio.Produtos.Domain.Entities;
+using Cassio.Produtos.Infra.Data.Context;
 
 namespace Cassio.Produtos.Api.DependecyInjection
 {
@@ -11,6 +12,9 @@ namespace Cassio.Produtos.Api.DependecyInjection
 
             // Domain Injection
             services.AddMediatR(config => config.RegisterServicesFromAssemblyContaining<Product>());
+
+            // Data Injection
+            services.AddMediatR(config => config.RegisterServicesFromAssemblyContaining<ProductsContext>());
         }
     }
 }
