@@ -1,0 +1,6 @@
+@Cassio.Produtos.Api_HostAddress = http://localhost:5100
+
+GET {{Cassio.Produtos.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
