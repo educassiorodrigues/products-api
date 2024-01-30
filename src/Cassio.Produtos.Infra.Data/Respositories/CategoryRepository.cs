@@ -1,6 +1,7 @@
 ﻿using Cassio.Produtos.Domain.Entities;
 using Cassio.Produtos.Domain.Interfaces.Repositories;
 using Cassio.Produtos.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cassio.Produtos.Infra.Data.Respositories
 {
@@ -17,6 +18,11 @@ namespace Cassio.Produtos.Infra.Data.Respositories
         {
             await _context.Categories.AddAsync(category);
             _context.SaveChanges();
+        }
+
+        public async Task<IEnumerable<Category>> ListAllAsync()
+        {
+            return await _context.Categories.ToListAsync();
         }
     }
 }
