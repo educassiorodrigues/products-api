@@ -1,9 +1,4 @@
 ﻿using Cassio.Produtos.Api.DependecyInjection;
-using Cassio.Produtos.Domain.Interfaces.Repositories;
-using Cassio.Produtos.Infra.Data.Context;
-using Cassio.Produtos.Infra.Data.Respositories;
-using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Cassio.Produtos.Api
 {
@@ -20,14 +15,13 @@ namespace Cassio.Produtos.Api
         {
             services.AddControllers();
 
-            services.AddScoped<IProductRepository, ProductRepository>();
-
+            services.AddDependecies();
             services.AddMediator();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
         }
 
-        public void Configure(WebApplication app, IWebHostEnvironment environment)
+        public void Configure(WebApplication app, IWebHostEnvironment _)
         {
             if (app.Environment.IsDevelopment())
             {
