@@ -2,7 +2,6 @@
 using Cassio.Produtos.Domain.Entities;
 using Cassio.Produtos.Domain.Interfaces.Repositories;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cassio.Produtos.Api.Controllers
