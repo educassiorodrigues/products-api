@@ -20,6 +20,44 @@ namespace Cassio.Produtos.Infra.Data.Context.Mappers
 
             builder.Property(p => p.BarCode)
                .HasColumnName("BAR_CODE");
+
+            builder.Property(p => p.SalePrice)
+                .HasColumnName("SALE_PRICE");
+
+            builder.Property(p => p.ExpirationDate)
+               .HasColumnName("EXPIRATION_DATE");
+
+            builder.Property(p => p.ManufactoringDate)
+                .HasColumnName("MANUFACTORING_DATE");
+
+            builder.Property(p => p.Supplier)
+                .HasColumnName("SUPPLIER_ID");
+
+            builder.Property(p => p.Category)
+                .HasColumnName("CATEGORY_ID");
+
+            builder.Property(p => p.Location)
+                .HasColumnName("STOCK_ID");
+
+            builder.OwnsOne(p => p.Mensure)
+                .Property(p => p.Quantity)
+                .HasColumnName("QUANTITY");
+
+            builder.OwnsOne(p => p.Mensure)
+                .Property(p => p.UnityMeasurement)
+                .HasColumnName("UNITY_MEASUREMENT");
+                
+            builder.HasOne(s => s.Supplier)
+                .WithMany()
+                .HasForeignKey(s => s.Supplier);
+
+            builder.HasOne(s => s.Category)
+                .WithMany()
+                .HasForeignKey(s => s.Category);
+
+            builder.HasOne(s => s.Location)
+                .WithMany()
+                .HasForeignKey(s => s.Location);
         }
     }
 }

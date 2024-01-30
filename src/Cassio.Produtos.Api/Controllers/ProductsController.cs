@@ -17,7 +17,7 @@ namespace Cassio.Produtos.Api.Controllers
         }
 
         [HttpGet]       
-        public async Task<IEnumerable<Product>> GetHelloWorld()
+        public async Task<IEnumerable<Product>> ListProductsAsync()
         {
             return await _mediator.Send(new GetProductCommand());
         }

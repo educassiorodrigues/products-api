@@ -13,7 +13,7 @@ namespace Cassio.Produtos.Domain.ValueObjects
         public string Number { get; private set; }
         public string FormattedNumber { get; private set; }
 
-        public char Type {  get; private set; }
+        private char Type;
 
         public Identification(string identification)
         {
@@ -69,5 +69,8 @@ namespace Cassio.Produtos.Domain.ValueObjects
         {
             return Type is 'J' ? "Enterprise" : "Person";
         }
+
+        public string GetNumber() => Number;
+        public string GetFormattedNumber() => FormattedNumber;
     }
 }
