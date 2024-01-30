@@ -10,6 +10,8 @@ namespace Cassio.Produtos.Infra.Data.Context
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Stock> Stocks { get; set; }
 
+        public DbSet<Category> Categories { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("CONNECTION_STRING"));
@@ -21,7 +23,7 @@ namespace Cassio.Produtos.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new ProductMap());
             modelBuilder.ApplyConfiguration(new SupplierMap());
             modelBuilder.ApplyConfiguration(new StockMap());
-
+            modelBuilder.ApplyConfiguration(new CategoryMap());
         }
       
     }

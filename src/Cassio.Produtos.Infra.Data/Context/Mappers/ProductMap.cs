@@ -12,6 +12,9 @@ namespace Cassio.Produtos.Infra.Data.Context.Mappers
 
             builder.HasKey(p => p.Id);
 
+            builder.Property(p => p.Id)
+                .HasColumnName("ID");
+
             builder.Property(p => p.Description)
                 .HasColumnName("DESCRIPTION");
 
@@ -30,34 +33,13 @@ namespace Cassio.Produtos.Infra.Data.Context.Mappers
             builder.Property(p => p.ManufactoringDate)
                 .HasColumnName("MANUFACTORING_DATE");
 
-            builder.Property(p => p.Supplier)
-                .HasColumnName("SUPPLIER_ID");
-
-            builder.Property(p => p.Category)
-                .HasColumnName("CATEGORY_ID");
-
-            builder.Property(p => p.Location)
-                .HasColumnName("STOCK_ID");
-
             builder.OwnsOne(p => p.Mensure)
                 .Property(p => p.Quantity)
-                .HasColumnName("QUANTITY");
+                .HasColumnName("MEASURE_QUANTITY");
 
             builder.OwnsOne(p => p.Mensure)
                 .Property(p => p.UnityMeasurement)
-                .HasColumnName("UNITY_MEASUREMENT");
-                
-            builder.HasOne(s => s.Supplier)
-                .WithMany()
-                .HasForeignKey(s => s.Supplier);
-
-            builder.HasOne(s => s.Category)
-                .WithMany()
-                .HasForeignKey(s => s.Category);
-
-            builder.HasOne(s => s.Location)
-                .WithMany()
-                .HasForeignKey(s => s.Location);
+                .HasColumnName("MEASURE_UNITY_MEASUREMENT");
         }
     }
 }
