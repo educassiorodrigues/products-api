@@ -1,4 +1,4 @@
-﻿namespace Cassio.Produtos.Domain.Entities
+﻿namespace Cassio.Produtos.Domain.Entities.Base
 {
     public abstract class Entity
     {

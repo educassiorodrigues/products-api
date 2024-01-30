@@ -7,10 +7,7 @@ namespace Cassio.Produtos.Infra.Data.Respositories
     {
         public Task<List<Product>> ListProductsAsync()
         {
-            return Task.FromResult(new List<Product>
-            {
-                new Product("Produto", "apkosdkpo", 6)
-            });
+            return Task.FromResult(new List<Product>());
         }
     }
 }
