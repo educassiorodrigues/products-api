@@ -1,22 +1,22 @@
 ﻿using Cassio.Produtos.Domain.Entities;
 using Cassio.Produtos.Domain.Interfaces.Repositories;
 using Cassio.Produtos.Infra.Data.Context;
-using Microsoft.EntityFrameworkCore;
 
 namespace Cassio.Produtos.Infra.Data.Respositories
 {
-    public class ProductRepository : IProductRepository
+    public class CategoryRepository : ICategoryRepository
     {
         private readonly ProductsContext _context;
 
-        public ProductRepository()
+        public CategoryRepository()
         {
             _context = new ProductsContext();
         }
 
-        public async Task<List<Product>> ListProductsAsync()
+        public async Task AddCategoryAsync(Category category)
         {
-            return await _context.Products.ToListAsync();
+            await _context.Categories.AddAsync(category);
+            _context.SaveChanges();
         }
     }
 }
