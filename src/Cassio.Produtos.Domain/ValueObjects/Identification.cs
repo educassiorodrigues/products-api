@@ -15,11 +15,11 @@ namespace Cassio.Produtos.Domain.ValueObjects
 
         private char Type;
 
-        public Identification(string identification)
+        public Identification(string? identification)
         {
             identification = RemoveSpecialCharsAndTrim(identification);
 
-            if (identification.Length < LENGTH_CPF || identification.Length > LENGTH_CNPJ)
+            if (identification.Length != LENGTH_CPF && identification.Length != LENGTH_CNPJ)
             {
                 throw new ArgumentException("Identification Number is not valid.");
             }

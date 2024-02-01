@@ -10,6 +10,7 @@ namespace Cassio.Produtos.Api.DependecyInjection
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IStockRepository, StockRepository>();
+            services.AddScoped<ISupplierRepository, SupplierRepository>();
         }
     }
 }
