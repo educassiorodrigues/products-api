@@ -11,7 +11,7 @@ namespace Cassio.Produtos.Infra.Data.Context.Mappers
             builder.ToTable("CATEGORY");
 
             builder.HasKey(s => s.Id);
-        
+
             builder.Property(s => s.Id)
                 .HasColumnName("ID");
 
@@ -19,9 +19,10 @@ namespace Cassio.Produtos.Infra.Data.Context.Mappers
                 .HasColumnName("DESCRIPTION")
                 .IsRequired();
 
-            builder.HasMany(s => s.Products)
-                .WithOne(p => p.Category)
-                .HasForeignKey(p => p.CategoryId);  
+            builder.HasMany(c => c.Products)
+                   .WithOne(p => p.Category)
+                   .HasForeignKey(p => p.CategoryId)
+                   .IsRequired();
         }
     }
 

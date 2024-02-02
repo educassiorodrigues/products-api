@@ -45,7 +45,8 @@ namespace Cassio.Produtos.Infra.Data.Context.Mappers
 
             builder.HasMany(s => s.Products)
                 .WithOne(p => p.Location)
-                .HasForeignKey(p => p.LocationId);
+                .HasForeignKey(p => p.LocationId)
+                .IsRequired();
         }
     }
 }

@@ -9,9 +9,9 @@ namespace Cassio.Produtos.Infra.Data.Respositories
     {
         private readonly ProductsContext _context;
 
-        public CategoryRepository()
+        public CategoryRepository(ProductsContext context)
         {
-            _context = new ProductsContext();
+            _context = context;
         }
 
         public async Task AddCategoryAsync(Category category)

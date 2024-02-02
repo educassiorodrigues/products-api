@@ -50,29 +50,25 @@ namespace Cassio.Produtos.Domain.Commands.Products.Add
 
         private async Task<(Category, Supplier, Stock)> GetAggregateEntitiesAsync(string categoryId, string supplierId, string stockId)
         {
-            var category = _categoryRepository.GetByIdAsync(categoryId);
+            var category = await _categoryRepository.GetByIdAsync(categoryId);
             if (category == null)
             {
                 throw new Exception("Category not found");
             }
 
-            var supplier = _supplierRepository.GetByIdAsync(supplierId);
+            var supplier = await _supplierRepository.GetByIdAsync(supplierId);
             if (supplier == null)
             {
                 throw new Exception("Supplier not found");
             }
 
-            var location = _stockRepository.GetByIdAsync(stockId);
+            var location = await _stockRepository.GetByIdAsync(stockId);
             if (location == null)
             {
                 throw new Exception("Location not found");
             }
-
-            var tasks = new List<Task> { category, supplier, location };
-
-            await Task.WhenAll(tasks);
-
-            return (category.Result, supplier.Result, location.Result);
+         
+            return (category, supplier, location);
         }
     }
 }

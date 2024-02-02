@@ -2,6 +2,7 @@
 using Cassio.Produtos.Domain.Interfaces.Repositories;
 using Cassio.Produtos.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Cassio.Produtos.Infra.Data.Respositories
 {
@@ -9,15 +10,15 @@ namespace Cassio.Produtos.Infra.Data.Respositories
     {
         private readonly ProductsContext _context;
 
-        public ProductRepository()
+        public ProductRepository(ProductsContext context)
         {
-            _context = new ProductsContext();
+            _context = context;
         }
 
         public async Task AddProductAsync(Product product)
         {
             await _context.Products.AddAsync(product);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<Product>> ListAllAsync()

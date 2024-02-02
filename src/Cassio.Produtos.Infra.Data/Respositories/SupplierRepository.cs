@@ -8,15 +8,15 @@ namespace Cassio.Produtos.Infra.Data.Respositories
     {
         private readonly ProductsContext _context;
 
-        public SupplierRepository()
+        public SupplierRepository(ProductsContext context)
         {
-            _context = new ProductsContext();
+            _context = context;
         }
 
         public async Task AddSupplierAsync(Supplier supplier)
         {
                 await _context.Suppliers.AddAsync(supplier);
-                _context.SaveChanges(); 
+                await _context.SaveChangesAsync(); 
         }
 
         public async Task<Category> GetByIdAsync(string id)
