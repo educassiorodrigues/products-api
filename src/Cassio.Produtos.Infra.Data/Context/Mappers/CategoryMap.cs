@@ -18,6 +18,10 @@ namespace Cassio.Produtos.Infra.Data.Context.Mappers
             builder.Property(s => s.Description)
                 .HasColumnName("DESCRIPTION")
                 .IsRequired();
+
+            builder.HasMany(s => s.Products)
+                .WithOne(p => p.Category)
+                .HasForeignKey(p => p.CategoryId);  
         }
     }
 

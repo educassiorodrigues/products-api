@@ -47,6 +47,10 @@ namespace Cassio.Produtos.Infra.Data.Context.Mappers
             builder.OwnsOne(s => s.Address)
                 .Property(a => a.State)
                 .HasColumnName("ADDRESS_STATE");
+
+            builder.HasMany(s => s.Products)
+                .WithOne(p => p.Supplier)
+                .HasForeignKey(p => p.SupplierId);
         }
     }
 }

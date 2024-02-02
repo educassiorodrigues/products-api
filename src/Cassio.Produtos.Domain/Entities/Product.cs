@@ -17,12 +17,13 @@ namespace Cassio.Produtos.Domain.Entities
 
         public DateTime? ExpirationDate { get; private set; }
 
-        public Category Category { get; private set; }
-
         public Measure Mensure { get; private set; }
 
+        public string CategoryId { get; private set; }
+        public Category Category { get; private set; }
+        public string LocationId { get; private set; }
         public Stock Location { get; private set; }
-
+        public string SupplierId { get; private set; }
         public Supplier Supplier { get; private set; }
 
         public Product() { }

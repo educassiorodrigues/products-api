@@ -40,6 +40,21 @@ namespace Cassio.Produtos.Infra.Data.Context.Mappers
             builder.OwnsOne(p => p.Mensure)
                 .Property(p => p.UnityMeasurement)
                 .HasColumnName("MEASURE_UNITY_MEASUREMENT");
+
+            builder.HasOne(p => p.Category)
+                .WithMany()
+                .HasForeignKey(p => p.CategoryId)
+                .HasPrincipalKey(p => p.Id);
+
+            builder.HasOne(p => p.Location)
+                .WithMany()
+                .HasForeignKey(p => p.LocationId)
+                .HasPrincipalKey(p => p.Id);
+
+            builder.HasOne(p => p.Supplier)
+                .WithMany()
+                .HasForeignKey(p => p.SupplierId)
+                .HasPrincipalKey(p => p.Id);
         }
     }
 }

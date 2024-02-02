@@ -9,6 +9,8 @@ namespace Cassio.Produtos.Domain.Entities
         public Address Address { get; private set; }
         public Identification Identification {  get; private set; }
 
+        public List<Product> Products { get; private set; } = new List<Product>();
+
         protected Supplier() { }
 
         public Supplier(string name, Address address, Identification identification)
