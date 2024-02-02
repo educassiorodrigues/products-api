@@ -24,5 +24,10 @@ namespace Cassio.Produtos.Infra.Data.Respositories
         {
            return await _context.Stocks.ToListAsync();
         }
+
+        public async Task<Stock> GetByIdAsync(string id)
+        {
+            return await _context.Stocks.FirstOrDefaultAsync(c => c.Id == id);
+        }
     }
 }

@@ -6,5 +6,6 @@ namespace Cassio.Produtos.Infra.Data.Respositories
     {
         Task AddSupplierAsync(Supplier supplier);
         Task<IEnumerable<Supplier>> ListAllAsync();
+        Task<Supplier> GetByIdAsync(string id);
     }
 }

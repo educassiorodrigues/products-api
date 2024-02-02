@@ -1,4 +1,6 @@
-﻿using Cassio.Produtos.Domain.Interfaces.Repositories;
+﻿using Cassio.Produtos.Domain.Builders;
+using Cassio.Produtos.Domain.Interfaces.Builders;
+using Cassio.Produtos.Domain.Interfaces.Repositories;
 using Cassio.Produtos.Infra.Data.Respositories;
 
 namespace Cassio.Produtos.Api.DependecyInjection
@@ -11,6 +13,8 @@ namespace Cassio.Produtos.Api.DependecyInjection
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IStockRepository, StockRepository>();
             services.AddScoped<ISupplierRepository, SupplierRepository>();
+
+            services.AddSingleton<IProductBuilder, ProductBuilder>();
         }
     }
 }

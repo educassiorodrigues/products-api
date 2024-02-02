@@ -1,6 +1,7 @@
 ﻿using Cassio.Produtos.Domain.Entities;
 using Cassio.Produtos.Infra.Data.Context.Mappers;
 using Microsoft.EntityFrameworkCore;
+using System;
 namespace Cassio.Produtos.Infra.Data.Context
 {
     public class ProductsContext : DbContext
@@ -13,6 +14,7 @@ namespace Cassio.Produtos.Infra.Data.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("CONNECTION_STRING"));
+            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             optionsBuilder.LogTo(Console.WriteLine);
 
             base.OnConfiguring(optionsBuilder);

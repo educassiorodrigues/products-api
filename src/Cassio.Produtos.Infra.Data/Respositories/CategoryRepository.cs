@@ -20,6 +20,11 @@ namespace Cassio.Produtos.Infra.Data.Respositories
             _context.SaveChanges();
         }
 
+        public async Task<Category> GetByIdAsync(string id)
+        {
+            return await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
+        }
+
         public async Task<IEnumerable<Category>> ListAllAsync()
         {
             return await _context.Categories.ToListAsync();

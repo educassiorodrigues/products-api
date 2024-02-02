@@ -14,7 +14,13 @@ namespace Cassio.Produtos.Infra.Data.Respositories
             _context = new ProductsContext();
         }
 
-        public async Task<List<Product>> ListProductsAsync()
+        public async Task AddProductAsync(Product product)
+        {
+            await _context.Products.AddAsync(product);
+            _context.SaveChanges();
+        }
+
+        public async Task<List<Product>> ListAllAsync()
         {
             return await _context.Products.ToListAsync();
         }

@@ -25,7 +25,7 @@ namespace Cassio.Produtos.Domain.Entities
 
         public Supplier Supplier { get; private set; }
 
-        protected Product() { }
+        public Product() { }
 
         public Product(
             string description,

@@ -6,5 +6,6 @@ namespace Cassio.Produtos.Domain.Interfaces.Repositories
     {
         Task AddCategoryAsync(Category category);
         Task<IEnumerable<Category>> ListAllAsync();
+        Task<Category> GetByIdAsync(string id);
     }
 }
