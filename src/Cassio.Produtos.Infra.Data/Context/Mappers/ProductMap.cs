@@ -46,12 +46,11 @@ namespace Cassio.Produtos.Infra.Data.Context.Mappers
                 .IsRequired();
 
             builder.HasOne(p => p.Location)
-                .WithMany(l => l.Products)
-                .HasForeignKey(p => p.LocationId);
+                .WithOne();
+
 
             builder.HasOne(p => p.Supplier)
-                .WithMany(s => s.Products)
-                .HasForeignKey(p => p.SupplierId);
+                .WithOne();
         }
     }
 }

@@ -25,6 +25,13 @@ namespace Cassio.Produtos.Api.Controllers
             return await _productRepository.ListAllAsync();
         }
 
+        [HttpGet("{id}")]
+        public async Task<Product> GetProductByIdAsync(string id)
+        {
+            return await _productRepository.GetByIdAsync(id);
+        }
+       
+
         [HttpPost]
         public async Task AddProductAsync([FromBody] AddProductCommand command)
         {

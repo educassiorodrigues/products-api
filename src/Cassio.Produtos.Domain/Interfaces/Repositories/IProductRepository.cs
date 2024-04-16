@@ -6,5 +6,6 @@ namespace Cassio.Produtos.Domain.Interfaces.Repositories
     {
         Task<List<Product>> ListAllAsync();
         Task AddProductAsync(Product product);
+        Task<Product> GetByIdAsync(string id);
     }
 }

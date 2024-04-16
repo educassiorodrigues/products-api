@@ -25,5 +25,15 @@ namespace Cassio.Produtos.Infra.Data.Respositories
         {
             return await _context.Products.ToListAsync();
         }
+
+        public async Task<Product> GetByIdAsync(string id)
+        {
+            return await _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Supplier)
+                .Include(p => p.Location)
+                .Include(p => p.Mensure)
+                .FirstOrDefaultAsync(p => p.Id == id) ?? throw new Exception("Product not founded");
+        }
     }
 }

@@ -7,7 +7,6 @@ namespace Cassio.Produtos.Domain.Entities
     {
         public string Description { get; private set; }
         public Address Address { get; private set; }
-        public List<Product> Products { get; private set; } = new List<Product>();
 
         protected Stock() { }
 
