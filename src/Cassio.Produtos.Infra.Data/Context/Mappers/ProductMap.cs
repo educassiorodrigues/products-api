@@ -42,8 +42,7 @@ namespace Cassio.Produtos.Infra.Data.Context.Mappers
                 .HasColumnName("MEASURE_UNITY_MEASUREMENT");
 
             builder.HasOne(p => p.Category)
-                .WithMany(c => c.Products)
-                .HasForeignKey(p => p.CategoryId)
+                .WithOne()
                 .IsRequired();
 
             builder.HasOne(p => p.Location)
