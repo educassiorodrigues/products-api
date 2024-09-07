@@ -25,9 +25,14 @@ namespace Cassio.Produtos.Infra.Data.Respositories
             return await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
         }
 
-        public async Task<IEnumerable<Category>> ListAllAsync()
+        public async Task<IEnumerable<Category>> ListAllNoTrackingAsync()
         {
-            return await _context.Categories.ToListAsync();
+            return await _context.Categories.AsNoTracking().ToListAsync();
+        }
+
+        public async Task DeleteCategoryAsync(string id, CancellationToken cancellationToken)
+        {
+            await _context.Categories.Where(c => c.Id == id).ExecuteDeleteAsync(cancellationToken);
         }
     }
 }

@@ -28,7 +28,13 @@ namespace Cassio.Produtos.Api.Controllers
         [HttpGet]
         public async Task<IEnumerable<Category>> ListCategoriesAsync()
         {
-            return await _categoryRepository.ListAllAsync();
+            return await _categoryRepository.ListAllNoTrackingAsync();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task DeleteCategoryAsync(string id, CancellationToken cancellationToken)
+        {
+             await _categoryRepository.DeleteCategoryAsync(id,  cancellationToken);
         }
     }
 }
